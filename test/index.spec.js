@@ -217,4 +217,20 @@ describe('deep-extend', function () {
 		});
 	});
 
+	it('can handle null/undefined as an argument', function () {
+    var A = {
+      something: 'test',
+      another: 'test'
+    };
+    var B = null;
+    var C;
+    extend(A, B).should.eql({
+      something: 'test',
+      another: 'test'
+    });
+    extend(A, C).should.eql({
+      something: 'test',
+      another: 'test'
+    });
+	});
 });
